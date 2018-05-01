@@ -6,8 +6,9 @@ var App = require('../app/App');
 var ReactDOM = require('react-dom');
 
 
-module.exports = function(props) {
-	
+module.exports = function (props) {
+
+	// 这个是标记
 	var content = ReactDOMServer.renderToString(
 		<App initialCount={props.initialCount}></App>
 	);
@@ -19,11 +20,13 @@ module.exports = function(props) {
 			<head>
 			</head>
 			<body>
+				{/* 这个就是插入一些东西，在node不适用模板ng模板 这样也是可以的把，这样就是放在window上了 北斗好像就没有使用大量模板 */}
 				<div id="root" dangerouslySetInnerHTML={
-					{__html: content}
+					{ __html: content }
 				} />
+				{/*  */}
 				<script dangerouslySetInnerHTML={
-					{__html: propsScript}
+					{ __html: propsScript }
 				}></script>
 				<script src={"assets/entry.generator.js"}></script>
 			</body>
